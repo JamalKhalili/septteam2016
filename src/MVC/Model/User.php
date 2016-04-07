@@ -13,7 +13,7 @@ class User
 	}
 
 	// function to add favourite stations
-	public function addStation($station){
+	public function addFavStation($station){
 		array_push($favStations, $station);
 	}
 

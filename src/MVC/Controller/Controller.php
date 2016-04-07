@@ -8,7 +8,7 @@ class Controller
 	private static $singltonInstance;
 	private $database = Database::getInstance();
 	private $stations = array();
-	private $user = new User("user"); // not sure whether we will have on or more users
+	private $user = new User("User"); // not sure whether we will have one or more users
 	
 
 	/*
@@ -38,6 +38,16 @@ class Controller
 	public function refreshStations(){
 		$stations = array();
 		$database->refreshStaions();
+	}
+
+	// function to add a station as user favourite 
+	public function setAsFavourite($station){
+		$user::addFavStation($station);
+	}
+
+	// function to get all user's favourite stations
+	public function getFavStations(){
+		return $user::getFavStations();
 	}
 }
 ?>

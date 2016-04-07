@@ -4,7 +4,6 @@
 */
 class Database
 {
-	
 	private static $singltonInstance;
 	private $controller = Controller::getInstance();
 
