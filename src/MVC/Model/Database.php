@@ -1,15 +1,42 @@
 <?php
+
+namespace MVC;
+use Controller/Controller;
+
 /**
-* This is the databse class that gets data from the BOM site
-*/
+ * This is the database class that gets data from the BOM site.
+ * @author Jamal Khalili
+ * @version 1.0.1 
+ */
 class Database
 {
+	/**
+	 * A static private variable of Database class that cannot be instantiated.
+	 * @var Database
+	 */
 	private static $singltonInstance;
+
+	/**
+	 * A static private variable of Controller class.
+	 * @var Controller
+	 */
 	private $controller = Controller::getInstance();
 
-	/*
-	* Call this method to get singlton
-	*/
+	/**
+	 * Constructor.
+	 * 
+	 * It prevents from instaniating this class.
+	 * @return void Returns nothing.
+	 */
+	private function __construct(){ }
+
+	/**
+	 * Function to get instance of the databse sigleton classs.
+	 * 
+	 * It creates a new singleton of the databse class, otherwise it returns 
+	 * the existant one if it is already created.
+	 * @return Databse Returns a singlton class.
+	 */
 	public static function getInstance(){
 		if (static::$singltonInstance === null){
 			$singltonInstance = new Database();
@@ -18,15 +45,15 @@ class Database
 		return static::$singltonInstance;
 	}	
 
-	// a private controller to prevent any other classes from instantiating
-	private function __construct(){ }
-
-	
-
-	// function to get the data from the BOM site using json, and populate the "stations" array in the
-	// Controller calls with these data
+	/**
+	 * Function to refresh stations.
+	 * 
+	 * It gets data from the BOM site using json, and then populates the stations
+	 * array on the controller class with the updates stations.
+	 * @return void Returns nothing.
+	 */
 	public function refreshStations(){
-		/////TODO: here goes the code for json
+		//TODO: here goes the code for json
 	}
 }
 ?>

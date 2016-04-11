@@ -1,19 +1,56 @@
 <?php
+
+namespace MVC;
+use Model/Database;
+use Model/Station;
+use Model/User;
+
 /**
-* A singlton class to control the flow of the program
-*/
+ * This is a singlton class that controls the flow of the program
+ * @author Jamal Khalili
+ * @version 1.0.1 
+ */
 class Controller
 {
-
+	/**
+	 * A static private variable of Controller class that cannot be instantiated.
+	 * @var Controller
+	 */
 	private static $singltonInstance;
-	private $database = Database::getInstance();
-	private $stations = array();
-	private $user = new User("User"); // not sure whether we will have one or more users
-	
 
-	/*
-	* Call this method to get singlton
-	*/
+	/**
+	 * A static private variable of the database
+	 * @var Database
+	 */
+	private $database = Database::getInstance();
+
+	/**
+	 * A private array of stations
+	 * @var Station[]
+	 */
+	private $stations = array();
+
+	/**
+	 * A private variable for a fixed user
+	 * @var User
+	 */
+	private $user = new User("User"); //TODO: not sure whether we will have one or more users	
+
+	/**
+	 * Constructor.
+	 * 
+	 * It prevents from instaniating this class.
+	 * @return void Returns nothing.
+	 */
+	private function __construct(){ }
+
+	/**
+	 * Function to get instance of the controller sigleton classs.
+	 * 
+	 * It creates a new singleton of the Controller class, otherwise it returns 
+	 * the existant one if it is already created.
+	 * @return Controller Returns a singlton class.
+	 */
 	public static function getInstance(){
 		if (static::$singltonInstance === null){
 			$singltonInstance = new Controller();
@@ -21,31 +58,58 @@ class Controller
 		return static::$singltonInstance;
 	}	
 
-	// a private controller to prevent any other classes from instantiating
-	private function __construct(){ }
-
-	// function to add stations to the array
+	/**
+	 * Function to add stations.
+	 * 
+	 * It passes an array of stations and stores it in the stations array.
+	 * @param Staion [] $stations Array of stations.
+	 * @return void Returns nothing.
+	 */
 	public function addStations($stations){
 		$this->stations = $stations;
 	}
 
-	// function to return all stations stored in teh system
+	/**
+	 * Function to get stations.
+	 * 
+	 * It accesses the availabe stations and returns them to the calling class.
+	 * @return Station [] Returns an array of stations.
+	 */
 	public function getStations(){
 		retrun $stations;
 	}
-	
-	// function that refresh stations data by calling the refresh function on database class
+
+	/**
+	 * Function to grefresh stations.
+	 * 
+	 * It emptys the stations array, then it calls refresStaions() on the databse
+	 * class to refresh fill the local stations array with the updates stations.
+	 * @return void Returns nothing.
+	 */
 	public function refreshStations(){
 		$stations = array();
 		$database->refreshStaions();
 	}
 
-	// function to add a station as user favourite 
+	/**
+	 * Function to add a station to the favourite list.
+	 * 
+	 * It passes a station, then it calls addFavStation on the user class to add
+	 * the station into the user's favourite stations array.
+	 * @param Staion $station A station to be set as favourite.
+	 * @return void Returns nothing.
+	 */
 	public function setAsFavourite($station){
 		$user::addFavStation($station);
 	}
 
-	// function to get all user's favourite stations
+	/**
+	 * Function to get user favourite stations.
+	 * 
+	 * It accesses user's favourite stations via calling getFavStatoin on the user 
+	 * class, then gets all favourite stations.
+	 * @return Station [] Returns an array of user's favourite stations.
+	 */
 	public function getFavStations(){
 		return $user::getFavStations();
 	}
