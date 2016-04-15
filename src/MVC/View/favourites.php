@@ -21,14 +21,17 @@
 		<div id='main'>
 		
 			<h1>Favourites</h1>
-						
-			<p>Table of favourite weather stations</p>
-			
+									
+			<table><tr><th>Favourite Weather Stations</th><th>Remove from Favourites</th></tr>
+			<tr><th>
 			<?php 
 
-				echo '<a href="favourite.php">Link to Favourite</a>';
+				echo '<a href="favourite.php">Name of Favourite</a>';
 
 			?>
+			</th>
+			<th>Remove from Favourites Button</th></tr>
+			</table>
 			
 		</div>
 		

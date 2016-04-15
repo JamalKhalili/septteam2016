@@ -23,15 +23,17 @@
 			<h1>Weather Stations</h1>
 			
 			<h2>Refresh Button</h2>
-			
-			<p>Table of weather stations</p>
-			
+						
+			<table><tr><th>Weather Stations</th><th>Add to Favourites</th></tr>
+			<tr><th>
 			<?php 
 
-				echo '<a href="weatherstation.php">Link to Weather Station</a>';
+				echo '<a href="weatherstation.php">Name of Weather Station</a>';
 
 			?>
-			
+			</th>
+			<th>Add to Favourites Button</th></tr>
+			</table>
 		</div>
 		
 		<div id='footer'> 
