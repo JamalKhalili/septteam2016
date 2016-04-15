@@ -118,7 +118,6 @@ class Measurement
 		$this->date = $date;
 		$this->time = $time;
 		$this->tempC = $tempC;
-		$this->time = $time;
 		$this->appTempC = $appTempC;
 		$this->dewPointC = $dewPointC;
 		$this->relHumdity = $relHumdity;

@@ -20,10 +20,12 @@
 		
 		<div id='main'>
 		
-			<h1>Weather Stations</h1>
+			<h1>Weather  ddStations</h1>
 			
-			<h2>Refresh Button</h2>
-						
+			<button>Refresh Button</button>
+
+			<br/>
+			
 			<table><tr><th>Weather Stations</th><th>Add to Favourites</th></tr>
 			<tr><th>
 			<?php 

@@ -54,6 +54,35 @@ class Database
 	 */
 	public function refreshStations(){
 		//TODO: here goes the code for json
+
+		return createMockStations();
 	}
+
+	// Mock objects
+	function createMockStations(){
+
+		// stations
+		$station0 = new Station("0", "Melbourne", "522.3", "333.4", "324");
+		$station1 = new Station("1", "Sydney", "152.3", "333.4", "190");
+		$station2 = new Station("2", "Perth", "622.3", "333.4", "120");
+		$station3 = new Station("3", "Gold Coast", "901.3", "932.1", "220");
+
+		$stations = array($station0, $station1, $station2, $station3);
+
+		// mesurements
+		$measurement0 = new Measurement("9/2/2016" ,"4:20:11", "8", "3", "23", "34", "43", "NE",
+										"50", "43", "43", "83", "4", "3", "9");
+		$measurement1 = new Measurement("20/12/2015" ,"10:10:13", "23", "20", "39", "34", "45", "SW",
+										"40", "32", "24", "20", "1", "2", "8");
+
+		foreach ($stations as $station) {
+			$station.addMeasurement($measurement0);
+			$station.addMeasurement($measurement1);
+		}
+
+		return $stations;
+	}
+
+
 }
 ?>
