@@ -1,37 +1,63 @@
-<?php session_start();?>
+<?php include 'layoutTop.php';?>
 
-<!DOCTYPE html>
 
-<html>
+<h1  class="page-header">Melbourne</h1>
+<button class="btn btn-info">Refresh Station</button>
+<button class="btn btn-info">Add to Favourites</button>
+<table class="table" id="station">
+	<tr id="measurments">
+		<th>Date</th>
+		<th>Time</th>
+		<th>Temp C</th>
+		<th>App TEmp C</th>
+		<th>Rel Humd %</th>
+		<th>Delta T C</th>
+		<th>W. Dir</th>
+		<th>W. Spd KMH</th>
+		<th>W. Gst KMH</th>
+		<th>Press hPa</th>
+		<th>Rain</th>
+	</tr>
+	<tr>
+		<th>12/12/2015</th>
+		<th>10:22:22</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+	</tr>
+		<tr>
+		<th>12/12/2015</th>
+		<th>10:22:22</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+	</tr>	
+		<tr>
+		<th>12/12/2015</th>
+		<th>10:22:22</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+		<th>33</th>
+		<th>32</th>
+		<th>20</th>
+	</tr>	
+</table>
 
-	<head>
-	
-	<title>SEPT</title>
-	
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	
-	</head>
-	
-	<body>
-	
-		<div id='navigation'> 
-			<?php include 'menu.php';?>
-		</div>
-		
-		<div id='main'>
-		
-			<h1>Name of Weather Station</h1>
 			
-			<h2>Refresh Button | Add to Favourites</h2>
-			
-			<p>Details of weather station...</p>
-			
-		</div>
-		
-		<div id='footer'> 
-			<?php include 'footer.php';?>
-		</div>
-		
-	</body>
-	
-</html>
+<?php include 'layoutBottom.php';?>

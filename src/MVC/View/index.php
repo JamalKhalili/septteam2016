@@ -1,47 +1,26 @@
-<?php session_start();?>
+<?php include 'layoutTop.php';?>
 
-<!DOCTYPE html>
+<h1 class="page-header">Weather Stations</h1>
+<button class="btn btn-info">Refresh Stations</button>
 
-<html>
+<table class="table">
+	<tr >	
+		<th id="header">Weather Stations</th>
+	<tr>
+		<th>
+			<a class="StaionName" href="weatherstation.php" target="_blank">Melbourne</a>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<a class="StaionName" href="weatherstation.php">Sydney</a>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<a class="StaionName" href="weatherstation.php">Perth</a>
+		</th>
+	</tr>
+</table>
 
-	<head>
-	
-	<title>SEPT</title>
-	
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	
-	</head>
-	
-	<body>
-	
-		<div id='navigation'> 
-			<?php include 'menu.php';?>
-		</div>
-		
-		<div id='main'>
-		
-			<h1>Weather  ddStations</h1>
-			
-			<button>Refresh Button</button>
-
-			<br/>
-			
-			<table><tr><th>Weather Stations</th><th>Add to Favourites</th></tr>
-			<tr><th>
-			<?php 
-
-				echo '<a href="weatherstation.php">Name of Weather Station</a>';
-
-			?>
-			</th>
-			<th>Add to Favourites Button</th></tr>
-			</table>
-		</div>
-		
-		<div id='footer'> 
-			<?php include 'footer.php';?>
-		</div>
-		
-	</body>
-	
-</html>
+<?php include 'layoutBottom.php';?>

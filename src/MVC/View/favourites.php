@@ -1,44 +1,24 @@
-<?php session_start();?>
+<?php include 'layoutTop.php';?>
 
-<!DOCTYPE html>
-
-<html>
-
-	<head>
+<h1 class="page-header">Favourites</h1>	
+<table class="table">
+	<tr >	
+		<th id8="header">Favourite Weather Stations</th>
+	<tr>
+		<th>
+			<a class="StaionName" href="favourite.php">Melbourne</a>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<a class="StaionName" href="favourite.php">Adelaide</a>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<a class="StaionName" href="favourite.php">Gold Coast</a>
+		</th>
+	</tr>
+</table>
 	
-	<title>SEPT</title>
-	
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	
-	</head>
-	
-	<body>
-	
-		<div id='navigation'> 
-			<?php include 'menu.php';?>
-		</div>
-		
-		<div id='main'>
-		
-			<h1>Favourites</h1>
-									
-			<table><tr><th>Favourite Weather Stations</th><th>Remove from Favourites</th></tr>
-			<tr><th>
-			<?php 
-
-				echo '<a href="favourite.php">Name of Favourite</a>';
-
-			?>
-			</th>
-			<th>Remove from Favourites Button</th></tr>
-			</table>
-			
-		</div>
-		
-		<div id='footer'> 
-			<?php include 'footer.php';?>
-		</div>
-		
-	</body>
-	
-</html>
+<?php include 'layoutBottom.php';?>
