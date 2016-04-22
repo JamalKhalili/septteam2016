@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>User Documentaion</title>
@@ -18,8 +18,8 @@
 			<p>HTML documentation for Software Engineering: Process and Tools assignement part 1.</p>
 			<hr/>
 		</div>
+		<h3>Content</h3>
 		<ul>
-			<h3>Content</h3>
 			<li><a href="#overview">Overview</a></li>
 			<li>
 				<a href="#start">Getting Started</a>
@@ -44,36 +44,23 @@
 		<hr/>
 		<div id="overview">
 			<h3>Overview</h3>
-			<p>Angelic impiously beseeching chose chuckled generous dear dolorously much tore hey cattily and or away jeepers much goodness save iguana cuckoo that and candid far vividly judicious ardent experimentally. Growled slackly alas macaw naked more goodness out far anonymously much that weasel inside congratulated more the hyena less jauntily some yet purely precarious.
+			<p>Main function of this system is to retrieve data from Australia's Bureau of Meteorology website <a href="www.bom.gov.au">www.bom.gov.au</a> for weather stations around Australia and its Territories (including the Australian Antarctic Territory). The system allows visitors to select weather stations they want to keep track of (their favourites).
 			</p>
 			<hr/>
 		</div>
 		<div id="start">
 			<h3>Getting Started</h3>
-			<p>This program runs on php 5.</p>
-			<p>In short, once you have installed Apache, enabled php5 and set up your local web server. Place the code</p>
-			<p>folder into the documents folder where your locally hosted files run. Then, in your browser</p>
-			<p>write the name of your local host followed by /code (e.g. for Mac 'localhost/code').</p>
-			<p>First you must make sure you have installed apache. The following links will give you a set by set guide to installing apache.</p>
+			<p>This program runs on php 5. In short, once you have installed Apache, enabled php5 and set up your local web server. Place the code folder into the documents folder where your locally hosted files run. Then, in your browser write the name of your local host followed by /code (e.g. for Mac 'localhost/code'). First you must make sure you have installed apache. The following links will give you a set by set guide to installing apache.</p>
 			
-			<p>Mac</p>
-			<p>http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite/</p>
+			<STRONG>Mac</STRONG>
+			<a href="http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite/">http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite/</a>
 			<p>The above link will also explain how to enable php 5. From here, you must place the 'code' folder into /Library/WebServer/Documents. Once you have done so type 'localhost/code' into your web browser of choice and the website will run.</p>
 			
-			<p>Windows</p>
-			<p>https://httpd.apache.org/docs/current/platform/windows.html</p>
-			<p>After installing apache, similar to Mac you must uncomment LoadModule php5_module libexec/apache2/libphp5.so</p>
-			<p>by removing the #. All of this is done in your httpd.conf. Once your have made the necessary changes</p>
-			<p>restart apache (apachectl restart). </p>
-			<p>https://www.youtube.com/watch?v=Ybn6Q92m4xg</p>
-			<p>The youtube clip above shows you how to set up your localhost, to host the website locally.</p>
-			<br/>
-			<h4 id="install">How To Install</h4>
-			<p>perhaps not necessary?</p>
-			<h4 id="complie">How To Compile</h4>
-			<p>perhaps not necessary?</p>
-			<h4 id="run">How To Run</h4>
-			<p>perhaps not necessary?</p>
+			<STRONG>Windows</STRONG><br/>
+			<a href="https://httpd.apache.org/docs/current/platform/windows.html">
+			https://httpd.apache.org/docs/current/platform/windows.html</a>
+			<p>After installing apache, similar to Mac you must uncomment LoadModule php5_module libexec/apache2/libphp5.so by removing the #. All of this is done in your httpd.conf. Once your have made the necessary changes restart apache (apachectl restart). </p>
+			<p>This <a href="https://www.youtube.com/watch?v=Ybn6Q92m4xg">youtube clip</a> shows you how to set up your localhost, to host the website locally.</p>
 			<hr/>
 		</div>
 		<div id="use">
@@ -82,40 +69,40 @@
 			<br/>
 			<h4 id="stations">View Weather Staions</h4>
 			<p> To view all weather staions, go to the main home page and there should be listed all the staitons. if you are on a different page, then clcik on the "Wather Statons" button as it shown in the screenshot below.</p>
-			<img src="stations.jpg" class="img-responsive img-thumbnail" alt="Weather Stations" width="70%">
+			<img src="stations.jpg" class="img-responsive img-thumbnail" alt="Weather Stations">
 			<br/>
 			<h4 id="favourites">View Favourite Weather Staions</h4>
 			<p> To view all of your favourite listed weather stations, click on the "Favourites" button as it is shown on the imaghe below.</p>
-			<img src="favourites.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations" width="70%">
+			<img src="favourites.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations">
 			<br/>
 			<h4 id="refresh">Refresh Weather Staions</h4>
 			<p> To refresh weather stations and get all updated data, click on the "Refresh" button as it shown on the image below.</p>
-			<img src="refresh.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations" width="70%">
+			<img src="refresh.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations">
 			<br/>
 			<h4 id="add">Add A Weather Staions To Favourite</h4>
 			<p> To add a weather station to your favourtie list, go to the station page you want to add and then click on the "Add To Favourites" button as it shown on the image below.</p>
-			<img src="add.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations" width="70%">
+			<img src="add.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations">
 			<br/>
 			<h4 id="remove">Remove A Weather Station From Favourites</h4>
 			<p> To remove a weather station from your favourtie list, go to the favourite station page you want to remove and then click on the "Remove From Favourites" button as it shown on the image below.</p>
-			<img src="remove.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations" width="70%">
+			<img src="remove.jpg" class="img-responsive img-thumbnail" alt="Favourite Stations">
 			<hr/>
 		</div>
 		<div id="refrence">
 			<h3>Refrences</h3>
 			<ul>
-			<li>
-				W3School: 
-				<a href="http://www.w3schools.com/bootstrap/default.asp">http://www.w3schools.com/bootstrap/default.asp</a>
-			</li>
-			<li>
-				Visjs: 
-				<a href="http://visjs.org/index.html">http://visjs.org/index.html</a>
-			</li>
-			<li>
-				Bureau of Meteorology: 
-				<a href="http://www.bom.gov.au">http://www.bom.gov.au</a>
-			</li>
+				<li>
+					W3School: 
+					<a href="http://www.w3schools.com/bootstrap/default.asp">http://www.w3schools.com/bootstrap/default.asp</a>
+				</li>
+				<li>
+					Visjs: 
+					<a href="http://visjs.org/index.html">http://visjs.org/index.html</a>
+				</li>
+				<li>
+					Bureau of Meteorology: 
+					<a href="http://www.bom.gov.au">http://www.bom.gov.au</a>
+				</li>
 			</ul>
 		</div>
 		<br/><br/>
