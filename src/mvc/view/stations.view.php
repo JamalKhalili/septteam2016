@@ -19,7 +19,7 @@
 		 */
 		public function __construct()
 		{
-			$this->path = 'templates/stations.php';
+			$this->path = 'static/stations.php';
 		}
 	}
 ?>

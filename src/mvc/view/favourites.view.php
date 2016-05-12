@@ -20,7 +20,7 @@
 		 */
 		public function __construct()
 		{
-			$this->path = 'templates/favourites.php';
+			$this->path = 'static/favourites.php';
 		}
 	}
 ?>

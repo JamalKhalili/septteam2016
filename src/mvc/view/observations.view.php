@@ -26,14 +26,14 @@
 
 		public function __construct()
 		{
-			$this->path = 'templates/weatherstation.php';
+			$this->path = 'static/weatherstation.php';
 		}
 	
 		public function show( $data )
 		{
 			if( $data['station']->isFavourite === TRUE )
 			{
-				$this->path = 'templates/favourite.php';
+				$this->path = 'static/favourite.php';
 			}
 
 			parent::show( $data );

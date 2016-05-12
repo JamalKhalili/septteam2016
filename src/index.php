@@ -48,13 +48,13 @@
 
 	function getModel()
 	{
-		include './model/weathersystem.php';
+		include './mvc/model/weathersystem.php';
 		return new WeatherSystem();
 	}
 
 	function getView()
 	{
-		$viewPath = './view/' . strtolower( $_SESSION['page'] ) . '.view.php';
+		$viewPath = './mvc/view/' . strtolower( $_SESSION['page'] ) . '.view.php';
 		$viewClass = $_SESSION['page'] . 'View';
 		include $viewPath;
 		return new $viewClass();
@@ -64,7 +64,7 @@
 	{
 		if(isset($_SESSION['page']))
 		{
-			$controllerPath = './controller/' . strtolower($_SESSION['page']) . '.controller.php';
+			$controllerPath = './mvc/controller/' . strtolower($_SESSION['page']) . '.controller.php';
 			$controllerClass = $_SESSION['page'] . 'Controller';
 			include $controllerPath;
 			return new $controllerClass ( $model, $view );

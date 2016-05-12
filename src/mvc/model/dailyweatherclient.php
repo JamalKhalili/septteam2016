@@ -29,9 +29,9 @@
 			
 			for( $i = 0; $i < $months; $i++ )
 			{
-				$year = date('Y');
+				$year =  date_default_timezone_set('Y');
 				
-				$month = date('n') - $i;
+				$month =  date_default_timezone_set('n') - $i;
 
 				while( $month < 1 )
 				{
