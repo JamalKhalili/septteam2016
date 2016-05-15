@@ -1,126 +1,118 @@
 <?php
-namespace MVC;
-
 /**
  * This is the measurment class that stores datas at certain time for a station
  * @author Jamal Khalili
  * @version 1.0.1 
  */
-class Measurement
+class Observation
 {	
 	/**
 	 * Stores the date when measurement was taken
 	 * @var String
 	 */
-	private $date;
+	public $date;
 
 	/**
 	 * Stores the time when measurement was taken
 	 * @var String
 	 */
-	private $time;
+	public $time;
 
 	/**
 	 * Stores the temprature in celsius scale when measurement was taken
 	 * @var float
 	 */
-	private $tempC;
+	public $tempC;
 
 	/**
 	 * Stores the apparent temprature in celsius scale when measurement was taken
 	 * @var float
 	 */
-	private $appTempC;
+	public $appTempC;
 
 	/**
 	 * Stores the dew point when measurement was taken
 	 * @var float
 	 */
-	private $dewPointC;
+	public $dewPointC;
 
 	/**
 	 * Stores the humidity percent when measurement was taken
 	 * @var int
 	 */
-	private $relHumdity;
+	public $relHumidity;
 
 	/**
 	 * Stores the Delta-T in celsius scale when measurement was taken
 	 * @var float
 	 */
-	private $deltaTC;
+	public $deltaTC;
 
 	/**
 	 * Stores the wind direction when measurement was taken
 	 * @var String
 	 */
-	private $wDir;
+	public $wDir;
 
 	/**
 	 * Stores the wind speed in km per hour when measurement was taken
 	 * @var int
 	 */
-	private $wSpeedKMH;
+	public $wSpeedKMH;
 
 	/**
 	 * Stores the wind gust in km per hour when measurement was taken
 	 * @var int
 	 */
-	private $wGustKMH;
+	public $wGustKMH;
 
 	/**
 	 * Stores the wind speed in KTS when measurement was taken
 	 * @var int
 	 */
-	private $wSpeedKTS;
+	public $wSpeedKTS;
 
 	/**
 	 * Stores the wind gust in KTS when measurement was taken
 	 * @var int
 	 */
-	private $wGustKTS;
+	public $wGustKTS;
 
 	/**
 	 * Stores the Press QNH hPa when measurement was taken
 	 * @var float
 	 */
-	private $pressQNH;
+	public $pressQNH;
 
 	/**
 	 * Stores the Press MSL hPa when measurement was taken
 	 * @var float
 	 */
-	private $pressMSL;
+	public $pressMSL;
 
 	/**
 	 * Stores the rain at 9am in mm when measurement was taken
 	 * @var float
 	 */
-	private $rainAt9Am;
-
-	//TODO: find out how to set these variables
-	private $tempMax;
-	private $tempMin;
-	private $tempAt9Am;
-	private $tempAt3Pm;
+	public $rainAt9Am;
 
 	/**
 	 * Constructor.
 	 * 
 	 * It creates a new instance of Measurement class, with the passed paremeters.
-	 * @param $date, $time, $tempC, $appTempC, $dewPointC, $relHumdity, $deltaTC, $wDir, 
+	 * @param $date, $time, $tempC, $appTempC, $dewPointC, $relHumidity, $deltaTC, $wDir, 
 				$wSpeedKMH, $wGustKMH, $wSpeedKTS, $wGustKTS, $pressQNH, $pressMSL, $rainAt9Am.
 	 * @return void Returns nothing.
 	 */
-	public function Measurement($date, $time, $tempC, $appTempC, $dewPointC, $relHumdity, $deltaTC, $wDir, 
-				$wSpeedKMH, $wGustKMH, $wSpeedKTS, $wGustKTS, $pressQNH, $pressMSL, $rainAt9Am)
+	public function __construct( $date, $time, $tempC, $appTempC, $dewPointC, $relHumidity, $deltaTC, $wDir, 
+				$wSpeedKMH, $wGustKMH, $wSpeedKTS, $wGustKTS, $pressQNH, $pressMSL, $rainAt9Am )
 	{
 		$this->date = $date;
 		$this->time = $time;
 		$this->tempC = $tempC;
 		$this->appTempC = $appTempC;
 		$this->dewPointC = $dewPointC;
-		$this->relHumdity = $relHumdity;
+		$this->relHumidity = $relHumidity;
 		$this->deltaTC = $deltaTC;
 		$this->wDir = $wDir;
 		$this->wSpeedKMH = $wSpeedKMH;
@@ -130,19 +122,6 @@ class Measurement
 		$this->pressQNH = $pressQNH;
 		$this->pressMSL = $pressMSL;
 		$this->rainAt9Am = $rainAt9Am;
-	}
-
-	/**
-	 * Function to get a specified property.
-	 * 
-	 * It is passed a certian property, then it returns its value.
-	 * @param mixed $property Can be any variable.
-	 * @return mixed Returns the value of the passed variable.
-	 */
-	function __get($property){
-		if (property_exists($this, $property){
-			return $this->$property;
-		}
 	}
 }
 ?>

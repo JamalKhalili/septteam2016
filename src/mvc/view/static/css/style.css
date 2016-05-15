@@ -50,6 +50,19 @@ body
 	background-color: lightBlue;
 }
 
+#main .table span.add,
+#main .table span.remove {
+	cursor: pointer;
+}
+
+#main .table span.add:hover{
+	color: gray;
+}
+
+#main .table#stationF{
+	background-color: lightGray;
+}
+
 #main .table th{
 	padding-left: 20px;
 	text-align: left;
@@ -57,14 +70,17 @@ body
 	color: #444444;
 }
 
-#main #station th{
+#main #stationH th,
+#main #stationF th{
 	font-size: 13px;
 	font-weight: lighter;
+	text-align: center;
 	color: #555555;
 	border-right: 1px solid white;
 }
 
-#main table#station tr#measurments th{
+#main table#stationH tr.measurments th,
+#main table#stationF tr.measurments th{
 	font-size: 15px;
 	color: #333333;
 } 
@@ -86,6 +102,10 @@ body
 
 	margin-right:0px;
 	display: inline-block;
+}
+
+#main #graphs div.graph{
+	height: 400px;
 }
 
 a.StaionName {
