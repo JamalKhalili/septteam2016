@@ -34,9 +34,9 @@ $(function () {
 					addedWSpdValues.push(wSpdData[parseInt(names[1])]);
 					break;
 
-				case 'Dir':
-					wDirValues.push(names[1]);
-					break;
+				// case 'Dir':
+				// 	wDirValues.push(names[1]);
+				// 	break;
 
 				default:
 					break;
@@ -65,9 +65,9 @@ $(function () {
 					wSpdValues[parseInt(names[1])] = {};
 					break;
 
-				case 'Dir':
-					wDirValues[parseInt(names[1])] = {} ;
-					break;
+				// case 'Dir':
+				// 	wDirValues[parseInt(names[1])] = {} ;
+				// 	break;
 
 				default:
 					break;
@@ -203,31 +203,31 @@ $(function () {
 		});
 
 		
-		var wDGraph = new CanvasJS.Chart("wDirection", {
-			theme: "theme2",//theme1
-			title:{
-				text: "Basic Column Chart - CanvasJS"              
-			},
-			animationEnabled: false,   // change to true
-			data: [              
-			{
-				// Change type to "bar", "area", "spline", "pie",etc.
-				type: "column",
-				dataPoints: [
-					{ label: "apple",  y: 10  },
-					{ label: "orange", y: 15  },
-					{ label: "banana", y: 25  },
-					{ label: "mango",  y: 30  },
-					{ label: "grape",  y: 28  }
-				]
-			}
-			]
-		});
+		// var wDGraph = new CanvasJS.Chart("wDirection", {
+		// 	theme: "theme2",//theme1
+		// 	title:{
+		// 		text: "Basic Column Chart - CanvasJS"              
+		// 	},
+		// 	animationEnabled: false,   // change to true
+		// 	data: [              
+		// 	{
+		// 		// Change type to "bar", "area", "spline", "pie",etc.
+		// 		type: "column",
+		// 		dataPoints: [
+		// 			{ label: "apple",  y: 10  },
+		// 			{ label: "orange", y: 15  },
+		// 			{ label: "banana", y: 25  },
+		// 			{ label: "mango",  y: 30  },
+		// 			{ label: "grape",  y: 28  }
+		// 		]
+		// 	}
+		// 	]
+		// });
 
 		tempGraph.render();
 		percGraph.render();
 		pressGraph.render();
 		wSGraph.render();
-		wDGraph.render();
+		// wDGraph.render();
 	});
 }); 

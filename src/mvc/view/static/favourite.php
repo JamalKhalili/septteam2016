@@ -13,12 +13,49 @@ echo '
   <button type="button" id="buttonF" class="btn btn-default">Forecast Data</button>
   <button type="button" id="buttonG" class="btn btn-default">Graphs</button>
 </div>
-<h5>Cilck on the plus symbol to add associated measurement to the graph!</h5>
-<table class="table" id="stationF" style="display: none;">
+
+<div id="sourceType">
+  <h5>Choose where you wish to obtain forecast information from:</h5>
+  <input type="radio" name="source" value="forecast" checked> Forecast.io<br>
+  <input type="radio" name="source" value="openweathermap"> OpenWeatherMap.org<br>
+</div>
+
+<h5 id="guide">Cilck on the plus symbol to add associated measurement to the graph!</h5>
+<table class="table" id="stationFF" style="display: none;">
 
   <tr class="measurments">
     <th>Date</th>
     <th>Time</th>
+    <th>Temperature in C<br><span class="glyphicon glyphicon-plus add" name="Temp_4"></span></th>
+    <th>Chance of Rain %<br><span class="glyphicon glyphicon-plus add" name="Perc_2"></span></th>
+    <th>Wind KMH <br><span class="glyphicon glyphicon-plus add" name="Wnd_4"></span></th>
+    <th>Visibility <br><span class="glyphicon glyphicon-plus add" name="Perc_3"></span></th>
+    <th>Humidity % <br><span class="glyphicon glyphicon-plus add" name="Perc_4"></span></th>
+    <th>Pressure mb <br><span class="glyphicon glyphicon-plus add" name="Press_2"></span></th>
+  </tr>
+
+  <?php
+    foreach ($this->observations as $observation) {
+      echo 
+        '<tr>
+          <th>' . $observation->date . '</th>
+          <th>' . $observation->time . '</th>
+          <th>' . $observation->tempC . '</th>
+          <th>' . $observation->appTempC . '</th>
+          <th>' . $observation->dewPointC . '</th>
+          <th>' . $observation->relHumidity . '</th>
+          <th>' . $observation->deltaTC . '</th>
+          <th>' . $observation->wDir . '</th>
+        </tr>';
+    }
+  ?>
+</table>
+
+<table class="table" id="stationFO" style="display: none;">
+
+  <tr class="measurments">
+    <th>Date FO</th>
+    <th>Time FO</th>
     <th>Temperature in C<br><span class="glyphicon glyphicon-plus add" name="Temp_4"></span></th>
     <th>Chance of Rain %<br><span class="glyphicon glyphicon-plus add" name="Perc_2"></span></th>
     <th>Wind KMH <br><span class="glyphicon glyphicon-plus add" name="Wnd_4"></span></th>
@@ -53,7 +90,7 @@ echo '
 		<th>Dew Point C <br> <span class="glyphicon glyphicon-plus add" name="Temp_2"></span></th>
 		<th>Rel Humd % <br> <span class="glyphicon glyphicon-plus add" name="Perc_0"></span></th>
 		<th>Delta T C <br> <span class="glyphicon glyphicon-plus add" name="Temp_3"></span></th>
-		<th>W. Dir <br> <span class="glyphicon glyphicon-plus add" name="Dir_WDir"></span></th>
+		<th>W. Dir </th><!-- <br> <span class="glyphicon glyphicon-plus add" name="Dir_WDir"></span></th> -->
 		<th>W. Spd KMH <br> <span class="glyphicon glyphicon-plus add" name="Wnd_0"></span></th>
 		<th>W. Gst KMH <br> <span class="glyphicon glyphicon-plus add" name="Wnd_1"></span></th>
 		<th>W. Spd KTS <br> <span class="glyphicon glyphicon-plus add" name="Wnd_2"></span></th>
@@ -115,10 +152,29 @@ echo '
     <hr/>
   </div>
 
-  <div class="graph-block">
+ <!--  <div class="graph-block">
     <h3>Wind Direction Graph <span class="glyphicon glyphicon-triangle-bottom" class="gragh-toggle"></span></h3>
     <br/>
-    <div class="graph" id="wDirection"></div>
-  </div>
+    <div class="graph" id="wDirecti">
+      <table class="table">
+        <tr>
+          <th>
+            Date and Time
+          </th>
+          <th>
+            Wind Direction
+          </th>
+        </tr>
+        <tr>
+          <th>
+            2016/5/12 10:30:00 PM
+          </th>
+          <th>
+            NE
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div> -->
 
 <?php include 'layoutBottom.php';?>
