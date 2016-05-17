@@ -23,13 +23,12 @@ body
  	color: white;
 }
 
-#navigation .btn-default{
+#navigation .btn-default {
 	background-color: white;
 	border:1px solid lightblue;
 }
 
-#main
-{
+#main {
 	padding: 10px;
 	padding-bottom: 50px;
 }
@@ -42,6 +41,12 @@ body
 
 #main button{
 	display: inline-block;
+}
+
+#main div#sourceType {
+	display: none;
+	margin: 20px;
+	color: #555;
 }
 
 #main .table{
@@ -58,8 +63,8 @@ body
 #main .table span.add:hover{
 	color: gray;
 }
-
-#main .table#stationF{
+#main .table#stationFF,
+#main .table#stationFO {
 	background-color: lightGray;
 }
 
@@ -71,7 +76,8 @@ body
 }
 
 #main #stationH th,
-#main #stationF th{
+#main #stationFO th,
+#main #stationFF th {
 	font-size: 13px;
 	font-weight: lighter;
 	text-align: center;
@@ -80,7 +86,8 @@ body
 }
 
 #main table#stationH tr.measurments th,
-#main table#stationF tr.measurments th{
+#main table#stationFF tr.measurments th,
+#main table#stationFO tr.measurments th {
 	font-size: 15px;
 	color: #333333;
 } 

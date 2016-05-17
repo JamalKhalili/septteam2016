@@ -13,23 +13,18 @@ echo '
 
 
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" id="buttonH" class="btn btn-default">Historical</button>
-  <!-- <button type="button" class="btn btn-default">Middle</button> -->
-  <button type="button" id="buttonF" class="btn btn-default">Forcasts</button>
+	<button type="button" id="buttonH" class="btn btn-default">Historical</button>
+	<!-- <button type="button" class="btn btn-default">Middle</button> -->
+	<button type="button" id="buttonF" class="btn btn-default">Forcasts</button>
 </div>
-<br/>
-<h5>Cick on the checkbox to add associated measurement to the graph!</h5>
-<table class="table" id="stationF" style="display: none;">
-		<tr class="measurments">
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-	</tr>
+
+<div id="sourceType">
+	<h5>Choose where you wish to obtain forecast information from:</h5>
+	<input type="radio" name="source" value="forecast" checked> Forecast.io<br>
+	<input type="radio" name="source" value="openweathermap"> OpenWeatherMap.org<br>
+</div>
+
+<table class="table" id="stationFF" style="display: none;">
 	<tr class="measurments">
 		<th>Date</th>
 		<th>Time</th>
@@ -58,26 +53,36 @@ echo '
 	?>
 </table>
 
-<table class="table" id="stationH">
+<table class="table" id="stationFO" style="display: none;">
 	<tr class="measurments">
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
-		<th><input type="checkbox" name="date"></th>
+		<th>Date FO</th>
+		<th>Time FO</th>
+		<th>Temperature in C FO</th>
+		<th>Chance of Rain %</th>
+		<th>Wind KMH</th>
+		<th>Visibility</th>
+		<th>Humidity %</th>
+		<th>Pressure mb</th>
 	</tr>
+
+	<?php
+		foreach ($this->observations as $observation) {
+			echo 
+				'<tr>
+					<th>' . $observation->date . '</th>
+					<th>' . $observation->time . '</th>
+					<th>' . $observation->tempC . '</th>
+					<th>' . $observation->appTempC . '</th>
+					<th>' . $observation->dewPointC . '</th>
+					<th>' . $observation->relHumidity . '</th>
+					<th>' . $observation->deltaTC . '</th>
+					<th>' . $observation->wDir . '</th>
+				</tr>';
+		}
+	?>
+</table>
+
+<table class="table" id="stationH">
 	<tr class="measurments">
 		<th>Date</th>
 		<th>Time</th>
