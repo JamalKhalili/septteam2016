@@ -5,7 +5,7 @@
 		abstract protected function getForecasts( $station );
 
 		/* Conversion of wind direction from degrees to cardinal units */
-		protected static function WindDirectionDegToCdl( $degrees )
+		public static function WindDirectionDegToCdl( $degrees )
 		{
 			$directions = array("N","NNE","NE","ENE","E","ESE","SE","SSE",
 							"S","SSW","SW","WSW","W","WNW","NW","NNW");
