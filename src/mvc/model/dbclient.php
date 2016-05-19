@@ -27,8 +27,11 @@
 
 			$sitename;
 			$state;
+			$lat;
+			$lon;
 			$wmo;
 			$dwo;
+			$wid;
 		
 			$data = file_get_contents( $this->file, true );
 
@@ -52,10 +55,13 @@
 				if( strcmp( $name, $sitename ) === 0 )
 				{
 					$state = $curr[1];
-					$wmo = $curr[2];
-					$dwo = substr( $curr[3], 0, -1 );
+					$lat = $curr[2];
+					$lon = $curr[3];
+					$wmo = $curr[4];
+					$dwo = $curr[5];
+					$wid = substr( $curr[6], 0, -1 );
 				
-					$station = new Station( $sitename, $state, $wmo, $dwo );
+					$station = new Station( $sitename, $state, $lat, $lon, $wmo, $dwo, $wid);
 
 					return $station;
 
@@ -79,10 +85,13 @@
 				Station member variables
 			*/
 
-			$name;
+			$sitename;
 			$state;
+			$lat;
+			$lon;
 			$wmo;
 			$dwo;
+			$wid;
 			
 			$data = file_get_contents( $this->file, true );
 
@@ -104,10 +113,13 @@
 
 				$name = $curr[0];
 				$state = $curr[1];
-				$wmo = $curr[2];
-				$dwo = substr( $curr[3], 0, -1 );
+				$lat = $curr[2];
+				$lon = $curr[3];
+				$wmo = $curr[4];
+				$dwo = $curr[5];
+				$wid = substr( $curr[6], 0, -1 );
 
-				$stations[] = new Station( $name, $state, $wmo, $dwo );
+				$stations[] = new Station( $name, $state, $lat, $lon, $wmo, $dwo, $wid);
 				
 				$token = strtok( "\n" );
 			}

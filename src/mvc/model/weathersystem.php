@@ -4,6 +4,8 @@
 	include 'jsonclient.php';
 	include 'dailyweatherclient.php';
 	include 'dbclient.php';
+	include 'forecastiofactory.php';
+	include 'openweathermapfactory.php';
 
 	/**
 	 * This is the weather system controller class that handles the main functionalities
@@ -19,12 +21,28 @@
 		 */
 		private $db;
 
+		private $forecastFactory;
+
 		/**
 		 * Constructor
 		 */
 		public function __construct()
 		{
 			$this->db = new DBClient( 'database.csv' );
+			
+			if(!isset($_COOKIE['forecast']))
+				$this->forecastFactory = new OpenWeatherMapFactory();
+				return;
+
+			switch($_COOKIE['forecast'])
+			{
+				case "forecast.io" : 
+					$forecastFactory = new ForecastIOFactory();
+					break;
+				case "openweathermap.org" :
+					$forecastFactory = new OpenWeatherMapFactory();
+					break;
+			}
 		}
 
 		public function addToFavourites( $name )
@@ -106,6 +124,12 @@
 		{
 			$station = $this->getStation( $name );
 			return DailyWeatherClient::requestObservationData( $station, 3 );
+		}
+
+		public function getForecasts( $name )
+		{
+			$station = $this->getStation( $name );
+			return $this->forecastFactory->GetForecasts( $station );
 		}
 
 		public function getFavourites()
