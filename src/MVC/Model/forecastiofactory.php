@@ -21,7 +21,7 @@
 			/* Hard coded API key for simplicity and security */
 			$apikey = "8caba0fba7cb34297277e210b630ef7b";
 			
-			$url = "https://api.forecast.io/" . $apikey . "/" . 
+			$url = "https://api.forecast.io/forecast/" . $apikey . "/" . 
 					$station->lat . "," . $station->lon . "?units=si";
 					
 			$json = file_get_contents($url);
@@ -29,14 +29,14 @@
 
 			foreach( $array['daily']['data'] as $data )
 			{
-				$date = date('Y-m-d', $data->time);
-				$weather = $data->summary;
-				$maxTemp = $data->temperatureMax;
-				$minTemp = $data->temperatureMin;
-				$humidity = $data->humidity;
-				$pressure = $data->pressure;
-				$windSpd = $data->windSpeed;
-				$windDir = WindDirectionDegToCdl($data->windBearing);
+				$date = date('Y-m-d', $data['time']);
+				$weather = $data['summary'];
+				$maxTemp = $data['temperatureMax'];
+				$minTemp = $data['temperatureMin'];
+				$humidity = $data['humidity'];
+				$pressure = $data['pressure'];
+				$windSpd = $data['windSpeed'];
+				$windDir = $this->WindDirectionDegToCdl($data['windBearing']);
 
 				$forecasts[] = new Forecast( $date, $weather, $maxTemp, 
 									$minTemp, $humidity, $pressure, $windSpd,
