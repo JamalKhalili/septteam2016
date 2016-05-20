@@ -1,6 +1,7 @@
 <?php
 
 	include 'controller.php';
+	
 	/**
 	 * This is the favourite controller class that handles updating the favourite stations
 	 * @author Alec Goodsell
@@ -19,6 +20,8 @@
 		{
 			$this->data['favourites'] = $this->model->getFavourites();
 			$this->view->show($this->data);
+
+			$this->logger->lwrite("Show favourite weather stations");
 		}
 	}
 ?>

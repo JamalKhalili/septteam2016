@@ -2,6 +2,7 @@
 
 	abstract class Model
 	{
+
 		abstract protected function addToFavourites( $name );
 
 		abstract protected function removeFromFavourites( $name );

@@ -1,0 +1,52 @@
+[20/May/2016:06:12:06] PHP: Retrieve weather stations 
+
+[20/May/2016:06:12:06] PHP: Show weather stations 
+
+[20/May/2016:06:12:08] PHP: Retrieve a weather station 
+
+[20/May/2016:06:12:08] PHP: Retrieve a weather station 
+
+[20/May/2016:06:12:08] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:12:08] PHP: Show Alice Springs Airport station's observations 
+
+[20/May/2016:06:20:12] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:12] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:12] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:20:12] PHP: Show Alice Springs Airport station's observations 
+
+[20/May/2016:06:20:31] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:31] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:31] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:20:32] PHP: Show Alice Springs Airport station's observations 
+
+[20/May/2016:06:20:35] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:35] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:35] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:20:35] PHP: Show Alice Springs Airport station's observations 
+
+[20/May/2016:06:20:40] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:40] PHP: Retrieve a weather station 
+
+[20/May/2016:06:20:40] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:20:41] PHP: Show Alice Springs Airport station's observations 
+
+[20/May/2016:06:21:04] PHP: Retrieve a weather station 
+
+[20/May/2016:06:21:04] PHP: Retrieve a weather station 
+
+[20/May/2016:06:21:04] PHP: Retrieve Alice Springs Airport station's observation data 
+
+[20/May/2016:06:21:05] PHP: Show Alice Springs Airport station's observations 
+

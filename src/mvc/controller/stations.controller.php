@@ -1,6 +1,7 @@
 <?php
 
 	include 'controller.php';
+
 	/**
 	 * This is the stations controller class that handles updating stations
 	 * @author Alec Goodsell
@@ -16,9 +17,12 @@
 		 * @return void
 		 */
 		public function update()
-		{
+		{ 
 			$this->data['stations'] = $this->model->getStations();
 			$this->view->show($this->data);
+
+			$this->logger->lwrite("Show weather stations");
+
 		}
 	}
 	

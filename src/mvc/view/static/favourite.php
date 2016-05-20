@@ -16,8 +16,8 @@ echo '
 
 <div id="sourceType">
   <h5>Choose where you wish to obtain forecast information from:</h5>
-  <input type="radio" name="source" value="forecast" checked> Forecast.io<br>
-  <input type="radio" name="source" value="openweathermap"> OpenWeatherMap.org<br>
+  <input type="radio" name="source" onclick="location.reload();"  value="forecast" checked> Forecast.io<br>
+  <input type="radio" name="source" onclick="location.reload();" value="openweathermap"> OpenWeatherMap.org<br>
 </div>
 
 <h5 id="guide">Cilck on the plus symbol to add associated measurement to the graph!</h5>

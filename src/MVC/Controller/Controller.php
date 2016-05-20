@@ -1,4 +1,7 @@
 <?php
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/sept/src/mvc/model/Logger.php';
+	
 	/**
 	 * This is the main abstract class that controls adding and removing favourite stations
 	 * @author Alec Goodsell
@@ -22,11 +25,17 @@
 		 * @var data
 		 */
 		private $data;
-		
+
+		/**
+		 * @var KLogger logs user actions in a file
+		 */
+		public $logger;
+
 		public function __construct( $model, $view )
 		{
 			$this->model = $model;
 			$this->view = $view;
+			$this->logger = new Logger ();
 		}
 		/**
 		 * Function to add a station to the favourites

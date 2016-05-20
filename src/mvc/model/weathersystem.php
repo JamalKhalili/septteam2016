@@ -4,6 +4,7 @@
 	include 'jsonclient.php';
 	include 'dailyweatherclient.php';
 	include 'dbclient.php';
+	require_once 'Logger.php';
 
 	/**
 	 * This is the weather system controller class that handles the main functionalities
@@ -20,15 +21,23 @@
 		private $db;
 
 		/**
+		 * @var logger logs user actions in a file
+		 */
+		public $logger;
+
+		/**
 		 * Constructor
 		 */
 		public function __construct()
 		{
 			$this->db = new DBClient( 'database.csv' );
+			$this->logger = new Logger ();
 		}
 
 		public function addToFavourites( $name )
 		{
+			$this->logger->lwrite("Add $name station to favourites");
+
 			if(!isset($_COOKIE['favourites']))
 			{
 				setcookie('favourites', $name);
@@ -50,6 +59,8 @@
 
 		public function removeFromFavourites( $name )
 		{
+			$this->logger->lwrite("Remove $name station from favourites");
+
 			if(!isset($_COOKIE['favourites']))
 			{
 				return;
@@ -86,6 +97,8 @@
 				$this->setFavourite($station);
 			}
 
+			$this->logger->lwrite("Retrieve weather stations");
+
 			return $stations;
 		}
 
@@ -93,18 +106,27 @@
 		{
 			$station = $this->db->getStation( $name );
 			$this->setFavourite( $station );
+
+			$this->logger->lwrite("Retrieve a weather station");
+
 			return $station;
 		}
 
 		public function getObservationData( $name )
 		{
 			$station = $this->getStation( $name );
+
+			$this->logger->lwrite("Retrieve $name station's observation data");
+
 			return JSONClient::requestObservationData( $station );
 		}
 		
 		public function getDailyObservationData( $name, $months )
 		{
 			$station = $this->getStation( $name );
+
+			$this->logger->lwrite("Retrieve $name station's daily observation data ");
+
 			return DailyWeatherClient::requestObservationData( $station, 3 );
 		}
 
@@ -127,6 +149,8 @@
 			{
 				$this->setFavourite($station);
 			}
+
+			$this->logger->lwrite("Retrieve favourite weather stations");
 
 			return $stations;
 		}

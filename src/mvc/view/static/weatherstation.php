@@ -19,9 +19,13 @@ echo '
 </div>
 
 <div id="sourceType">
+	<form>
+		<!-- <h5>The following forecast information is powered by </h5> -->
+	
 	<h5>Choose where you wish to obtain forecast information from:</h5>
-	<input type="radio" name="source" value="forecast" checked> Forecast.io<br>
-	<input type="radio" name="source" value="openweathermap"> OpenWeatherMap.org<br>
+	<input type="radio" name="source" onclick="location.reload();" value="forecast" checked> Forecast.io<br>
+	<input type="radio" name="source" onclick="location.reload();" value="openweathermap"> OpenWeatherMap.org<br>
+	</form>
 </div>
 
 <table class="table" id="stationFF" style="display: none;">

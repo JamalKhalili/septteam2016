@@ -1,21 +1,31 @@
 <?php
-
+	
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/sept/src/mvc/model/Logger.php';
 	include 'model.php';
 	include 'jsonclient.php';
 	include 'dailyweatherclient.php';
 	include 'dbclient.php';
 
+
 	class WeatherSystem extends Model
 	{
 		private $db;
 
+		/**
+		 * @var logger logs user actions in a file
+		 */
+		public $logger;
+
 		public function __construct()
 		{
 			$this->db = new DBClient( 'database.csv' );
+			$this->logger = new Logger ();
 		}
 
 		public function addToFavourites( $name )
 		{
+			$this->logger->lwrite("Add $name station to favourites");
+
 			if(!isset($_COOKIE['favourites']))
 			{
 				setcookie('favourites', $name);
@@ -28,12 +38,17 @@
 			{
 				$favourites[] = $name;
 			}
-			
+
+
 			setcookie('favourites', implode(',', $favourites));
+
+			
 		}
 
 		public function removeFromFavourites( $name )
 		{
+			$this->logger->lwrite("Remove $name station from favourites");
+			
 			if(!isset($_COOKIE['favourites']))
 			{
 				return;
@@ -57,6 +72,8 @@
 			}
 
 			unset($_COOKIE['favourites']);
+
+			
 		}
 
 		public function getStations()
@@ -68,19 +85,27 @@
 				$this->setFavourite($station);
 			}
 
+			$this->logger->lwrite("Show weather stations");
+
 			return $stations;
 		}
 
 		public function getStation( $name )
 		{
-			$station = $this->db->getStation( $name );
+			// $station = $this->db->getStation( $name );
 			$this->setFavourite( $station );
+
+			$this->logger->lwrite("Show $name station");
+
 			return $station;
 		}
 
 		public function getObservationData( $name )
 		{
 			$station = $this->getStation( $name );
+
+			$this->logger->lwrite("Show $name station's observation data");
+
 			return JSONClient::requestObservationData( $station );
 		}
 		
@@ -109,6 +134,8 @@
 			{
 				$this->setFavourite($station);
 			}
+
+			$this->logger->lwrite("Show favourite weather stations");
 
 			return $stations;
 		}

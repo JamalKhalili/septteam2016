@@ -27,6 +27,8 @@
 			}
 			
 			$this->view->show( $this->data );
+
+			$this->logger->lwrite("Show $name station's observations");
 		}
 	}
 
