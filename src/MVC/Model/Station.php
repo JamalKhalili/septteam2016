@@ -23,25 +23,43 @@ class Station
 	public $name;
 
 	/**
-	 * Stores station's longitude
-	 * @var float
-	 */
-
-	public $state;
-	
-	/**
 	 * Stores station's state
 	 * @var String
 	 */
+	 
+	public $state;
+	 
+	 /**
+	 * Stores station's latitude and longitude
+	 * Used by ForecastIOFactory
+	 * @var double
+	 */
+	 
+	 
+	public $lat;
+	 
+	public $lon;
+
+	 
+	 /**
+	 * Stores station ID.  To be utilised by the OpenWeatherMapFactory.
+	 * @var String
+	 */
+
+	 public $sid;
+
 
 	public $isFavourite = FALSE;
 	 
-	public function __construct( $name, $state, $wmo, $dwo )
+	public function __construct( $name, $state, $lat, $lon, $wmo, $dwo, $wid )
 	{
 		$this->name = $name;
 		$this->state = $state;
+		$this->lat = $lat;
+		$this->lon = $lon;
 		$this->wmo = $wmo;
 		$this->dwo = $dwo;
+		$this->wid = $wid;
 	}
 }
 ?>

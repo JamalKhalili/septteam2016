@@ -2,7 +2,7 @@
 
 	include 'observation.php';
 	/**
-	 * This is the json  client class that retrives data from the BOM site
+	 * This is the json  client class that retrieves data from the BOM site
 	 * @author Alec Goodsell
 	 * @version 1.0.1 
 	 */

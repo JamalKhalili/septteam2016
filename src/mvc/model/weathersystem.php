@@ -4,7 +4,12 @@
 	include 'jsonclient.php';
 	include 'dailyweatherclient.php';
 	include 'dbclient.php';
+<<<<<<< HEAD
 	require_once 'Logger.php';
+=======
+	include 'forecastiofactory.php';
+	include 'openweathermapfactory.php';
+>>>>>>> 407a5877cdb5e6d0590482560674e27b0d6f292d
 
 	/**
 	 * This is the weather system controller class that handles the main functionalities
@@ -20,6 +25,8 @@
 		 */
 		private $db;
 
+		private $forecastFactory;
+
 		/**
 		 * @var logger logs user actions in a file
 		 */
@@ -31,7 +38,24 @@
 		public function __construct()
 		{
 			$this->db = new DBClient( 'database.csv' );
+<<<<<<< HEAD
 			$this->logger = new Logger ();
+=======
+			
+			if(!isset($_COOKIE['forecast']))
+				$this->forecastFactory = new OpenWeatherMapFactory();
+				return;
+
+			switch($_COOKIE['forecast'])
+			{
+				case "forecast.io" : 
+					$forecastFactory = new ForecastIOFactory();
+					break;
+				case "openweathermap.org" :
+					$forecastFactory = new OpenWeatherMapFactory();
+					break;
+			}
+>>>>>>> 407a5877cdb5e6d0590482560674e27b0d6f292d
 		}
 
 		public function addToFavourites( $name )
@@ -128,6 +152,12 @@
 			$this->logger->lwrite("Retrieve $name station's daily observation data ");
 
 			return DailyWeatherClient::requestObservationData( $station, 3 );
+		}
+
+		public function getForecasts( $name )
+		{
+			$station = $this->getStation( $name );
+			return $this->forecastFactory->GetForecasts( $station );
 		}
 
 		public function getFavourites()
