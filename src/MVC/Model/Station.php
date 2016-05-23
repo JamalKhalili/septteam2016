@@ -46,7 +46,7 @@ class Station
 	 * @var String
 	 */
 
-	 public $sid;
+	 public $wid;
 
 
 	public $isFavourite = FALSE;
