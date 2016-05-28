@@ -17,8 +17,7 @@
 		 */
 		public function update()
 		{
-			$this->data['stations'] = $this->model->getStations( $_SESSION['state'] );
-			$this->data['state'] = $_SESSION['state'];
+			$this->data['stations'] = $this->model->getStations();
 			$this->view->show($this->data);
 		}
 	}

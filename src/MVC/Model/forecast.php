@@ -2,21 +2,19 @@
 
 	class Forecast
 	{
-		public $date;
+		public $time;
 		public $weather;
-		public $maxTemp;
-		public $minTemp;
+		public $temp;
 		public $humidity;
 		public $pressure;
 		public $windSpd;
 		public $windDir;
 		
-		public function __construct( $date, $weather, $maxTemp, $minTemp, $humidity, $pressure, $windSpd, $windDir )
+		public function __construct( $time, $weather, $temp, $humidity, $pressure, $windSpd, $windDir )
 		{
-			$this->date = $date;
+			$this->time = $time;
 			$this->weather = $weather;
-			$this->maxTemp = $maxTemp;
-			$this->minTemp = $minTemp;
+			$this->temp = $temp;
 			$this->humidity = $humidity;
 			$this->pressure = $pressure;
 			$this->windSpd = $windSpd;

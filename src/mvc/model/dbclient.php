@@ -73,10 +73,10 @@
 				}
 			}
 		}
-
-		public function getStations()
+		
+		/* Returns an array of stations in $state */
+		public function getStations( $state )
 		{
-
 			$token;
 			$stations;
 			$curr;
@@ -85,8 +85,8 @@
 				Station member variables
 			*/
 
-			$sitename;
-			$state;
+			$name;
+			$sitestate;
 			$lat;
 			$lon;
 			$wmo;
@@ -110,16 +110,19 @@
 			while( $token !== FALSE )
 			{
 				$curr = explode( ',', $token );
+				$sitestate = $curr[1];
+				
+				if( $sitestate == $state )
+				{
+					$name = $curr[0];				
+					$lat = $curr[2];
+					$lon = $curr[3];
+					$wmo = $curr[4];
+					$dwo = $curr[5];
+					$wid = substr( $curr[6], 0, -1 );
 
-				$name = $curr[0];
-				$state = $curr[1];
-				$lat = $curr[2];
-				$lon = $curr[3];
-				$wmo = $curr[4];
-				$dwo = $curr[5];
-				$wid = substr( $curr[6], 0, -1 );
-
-				$stations[] = new Station( $name, $state, $lat, $lon, $wmo, $dwo, $wid);
+					$stations[] = new Station( $name, $sitestate, $lat, $lon, $wmo, $dwo, $wid);
+				}
 				
 				$token = strtok( "\n" );
 			}

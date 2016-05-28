@@ -7,10 +7,9 @@
 		public function getForecasts( $station )
 		{
 
-			$date;
+			$time;
 			$weather;
-			$maxTemp;
-			$minTemp;
+			$temp;
 			$humidity;
 			$pressure;
 			$windSpd;
@@ -29,18 +28,16 @@
 
 			foreach( $array['list'] as $data )
 			{
-				$date = $data['dt_txt'];
+				$time = $data['dt_txt'];
 				$weather = $data['weather'][0]['main'];
-				$maxTemp = $data['main']['temp_max'];
-				$minTemp = $data['main']['temp_min'];
+				$temp = $data['main']['temp'];
 				$humidity = $data['main']['humidity'];
 				$pressure = $data['main']['pressure'];
 				$windSpd = $data['wind']['speed'];
 				$windDir = $this->WindDirectionDegToCdl($data['wind']['deg']);
 
-				$forecasts[] = new Forecast( $date, $weather, $maxTemp, 
-									$minTemp, $humidity, $pressure, $windSpd,
-									$windDir );
+				$forecasts[] = new Forecast( $time, $weather, $temp, $humidity, 
+									$pressure, $windSpd, $windDir );
 			}
 
 			return $forecasts;

@@ -4,12 +4,8 @@
 	include 'jsonclient.php';
 	include 'dailyweatherclient.php';
 	include 'dbclient.php';
-<<<<<<< HEAD
-	require_once 'Logger.php';
-=======
 	include 'forecastiofactory.php';
 	include 'openweathermapfactory.php';
->>>>>>> 407a5877cdb5e6d0590482560674e27b0d6f292d
 
 	/**
 	 * This is the weather system controller class that handles the main functionalities
@@ -24,44 +20,23 @@
 		 * @var DBClient
 		 */
 		private $db;
-
-		private $forecastFactory;
-
-		/**
-		 * @var logger logs user actions in a file
-		 */
-		public $logger;
-
+		private $forecaster;
 		/**
 		 * Constructor
 		 */
 		public function __construct()
 		{
 			$this->db = new DBClient( 'database.csv' );
-<<<<<<< HEAD
-			$this->logger = new Logger ();
-=======
 			
-			if(!isset($_COOKIE['forecast']))
-				$this->forecastFactory = new OpenWeatherMapFactory();
-				return;
-
-			switch($_COOKIE['forecast'])
-			{
-				case "forecast.io" : 
-					$forecastFactory = new ForecastIOFactory();
-					break;
-				case "openweathermap.org" :
-					$forecastFactory = new OpenWeatherMapFactory();
-					break;
-			}
->>>>>>> 407a5877cdb5e6d0590482560674e27b0d6f292d
+			if(isset($_COOKIE['forecaster']))
+				$this->forecaster = $_COOKIE['forecaster'];
+				
+			else
+				$this->forecaster = "forecast.io";
 		}
 
 		public function addToFavourites( $name )
 		{
-			$this->logger->lwrite("Add $name station to favourites");
-
 			if(!isset($_COOKIE['favourites']))
 			{
 				setcookie('favourites', $name);
@@ -83,8 +58,6 @@
 
 		public function removeFromFavourites( $name )
 		{
-			$this->logger->lwrite("Remove $name station from favourites");
-
 			if(!isset($_COOKIE['favourites']))
 			{
 				return;
@@ -111,17 +84,22 @@
 			setcookie( 'favourites', "" );
 			$_COOKIE['favourites'] = "";
 		}
-
-		public function getStations()
+		
+		public function setForecaster( $forecaster )
 		{
-			$stations = $this->db->getStations();
+			setcookie('forecaster', $forecaster);
+			$_COOKIE['forecaster'] = $forecaster;
+			$this->forcaster = $forecaster;
+		}
+
+		public function getStations( $state )
+		{
+			$stations = $this->db->getStations( $state );
 
 			foreach($stations as $station)
 			{
 				$this->setFavourite($station);
 			}
-
-			$this->logger->lwrite("Retrieve weather stations");
 
 			return $stations;
 		}
@@ -130,34 +108,42 @@
 		{
 			$station = $this->db->getStation( $name );
 			$this->setFavourite( $station );
-
-			$this->logger->lwrite("Retrieve a weather station");
-
 			return $station;
 		}
 
 		public function getObservationData( $name )
 		{
 			$station = $this->getStation( $name );
-
-			$this->logger->lwrite("Retrieve $name station's observation data");
-
 			return JSONClient::requestObservationData( $station );
 		}
 		
 		public function getDailyObservationData( $name, $months )
 		{
 			$station = $this->getStation( $name );
-
-			$this->logger->lwrite("Retrieve $name station's daily observation data ");
-
 			return DailyWeatherClient::requestObservationData( $station, 3 );
 		}
 
 		public function getForecasts( $name )
 		{
+			$forecastFactory;
+			
+			switch($this->forecaster)
+			{
+				case "forecast.io" :
+					$forecastFactory = new ForecastIOFactory();
+					break;
+				case "openweathermap.org" :
+					$forecastFactory = new OpenWeatherMapFactory();
+					break;
+			}
+			
 			$station = $this->getStation( $name );
-			return $this->forecastFactory->GetForecasts( $station );
+			return $forecastFactory->GetForecasts( $station );
+		}
+		
+		public function getForecaster()
+		{
+			return $this->forecaster;
 		}
 
 		public function getFavourites()
@@ -179,8 +165,6 @@
 			{
 				$this->setFavourite($station);
 			}
-
-			$this->logger->lwrite("Retrieve favourite weather stations");
 
 			return $stations;
 		}

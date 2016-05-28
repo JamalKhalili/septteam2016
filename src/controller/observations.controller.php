@@ -20,8 +20,6 @@
 			$name = $_SESSION['station'];
 			$this->data['station'] = $this->model->getStation( $name );
 			$this->data['observations'] = $this->model->getObservationData( $name );
-			$this->data['forecasts'] = $this->model->getForecasts( $name );
-			$this->data['forecaster'] = $this->model->getForecaster();
 
 			if( $this->data['station']->isFavourite === TRUE )
 			{

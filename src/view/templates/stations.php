@@ -7,7 +7,7 @@
 
 <table class="table">
 	<tr >	
-		<?php echo '<th id="header">Weather Stations - ' . $this->state . '</th>' ?>
+		<th id="header">Weather Stations</th>
 	</tr>
 
 	

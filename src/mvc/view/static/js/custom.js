@@ -12,7 +12,7 @@ $(function (){
 		$('table#stationFF').show(1000);
 
 		$('h5#guide')
-		.text("Cilck on the plus symbol to add associated measurement to the graph!");
+		.text("Click on the plus symbol to add associated measurement to the graph");
 	});
 
 	// history button
@@ -25,7 +25,6 @@ $(function (){
 		$('div#graphs').hide();
 
 		// hide forcast tables
-		$('table#stationFO').hide();
 		$('table#stationFF').hide();
 		$('div#sourceType').hide();
 
@@ -56,22 +55,5 @@ $(function (){
 
 	});
 	
-	// handles selection of forecast information source
-	$('input:radio').click(function() {
-
-		// if forcast is checked, show forecast's table other wise openweatherma's
-	   	if ($(this).val() == 'forecast') { 
-
-	   		$('table#stationFO').hide();
-			$('table#stationFF').show(1000);
-		}
-		else {
-
-			$('table#stationFF').hide();
-			$('table#stationFO').show(1000);
-		}
-	});
-
-
 });
 

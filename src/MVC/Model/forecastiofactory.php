@@ -7,10 +7,9 @@
 		public function getForecasts( $station )
 		{
 
-			$date;
+			$time;
 			$weather;
-			$maxTemp;
-			$minTemp;
+			$temp;
 			$humidity;
 			$pressure;
 			$windSpd;
@@ -27,20 +26,18 @@
 			$json = file_get_contents($url);
 			$array = json_decode($json, true);
 
-			foreach( $array['daily']['data'] as $data )
+			foreach( $array['hourly']['data'] as $data )
 			{
-				$date = date('Y-m-d', $data['time']);
+				$time = date('Y-m-d H:i:s', $data['time']);
 				$weather = $data['summary'];
-				$maxTemp = $data['temperatureMax'];
-				$minTemp = $data['temperatureMin'];
+				$temp = $data['temperature'];
 				$humidity = $data['humidity'];
 				$pressure = $data['pressure'];
 				$windSpd = $data['windSpeed'];
 				$windDir = $this->WindDirectionDegToCdl($data['windBearing']);
 
-				$forecasts[] = new Forecast( $date, $weather, $maxTemp, 
-									$minTemp, $humidity, $pressure, $windSpd,
-									$windDir );
+				$forecasts[] = new Forecast( $time, $weather, $temp, $humidity, 
+									$pressure, $windSpd, $windDir );
 			}
 
 			return $forecasts;

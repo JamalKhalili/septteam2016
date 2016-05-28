@@ -1,4 +1,3 @@
-
 var tempData = [
 	{ 
 		type: "line",
@@ -88,7 +87,7 @@ var tempData = [
 		type: "line",
 		lineThickness:3,
 		showInLegend: true,           
-		name: "Forecat Temperature",        
+		name: "Forecast Temperature",        
 		// axisYType:"secondary",
 		dataPoints: [
 			{ x: new Date(16,5,12,17,00,00,0), y: 3 },
@@ -175,7 +174,7 @@ var percData = [
 		type: "line",
 		lineThickness:3,
 		showInLegend: true,           
-		name: "Forecat Visibility",        
+		name: "Forecast Visibility",        
 		// axisYType:"secondary",
 		dataPoints: [
 			{ x: new Date(16,5,12,17,00,00,0), y: 13 },
@@ -196,7 +195,7 @@ var percData = [
 		type: "line",
 		lineThickness:3,
 		showInLegend: true,           
-		name: "Forecat Humidity",        
+		name: "Forecast Humidity",        
 		// axisYType:"secondary",
 		dataPoints: [
 			{ x: new Date(16,5,12,17,00,00,0), y: 23 },
@@ -307,7 +306,7 @@ var wSpdData = [
 		type: "line",
 		lineThickness:3,
 		showInLegend: true,           
-		name: "Guest",
+		name: "Gust",
 		// axisYType:"secondary",
 		dataPoints: [
 			{ x: new Date(16,5,12,11,00,00,0), y: 0 },
@@ -349,7 +348,7 @@ var wSpdData = [
 		type: "line",
 		lineThickness:3,
 		showInLegend: true,           
-		name: "Guest K",
+		name: "Gust K",
 		// axisYType:"secondary",
 		dataPoints: [
 			{ x: new Date(16,5,12,11,00,00,0), y: 0 },

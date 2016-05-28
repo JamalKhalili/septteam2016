@@ -35,9 +35,10 @@
 		 * be added as an argument
 		 * @return void
 		 */
-		public function addToFavourites( $station )
+		public function addToFavourites()
 		{
-			$this->model->addToFavourites( $station );
+			$this->model->addToFavourites( $_SESSION['add']);
+			$this->update();
 		}
 		/**
 		 * Function to remoce a station from the favourites
@@ -46,14 +47,10 @@
 		 * to be removed as an argument
 		 * @return void
 		 */
-		public function removeFromFavourites( $station )
+		public function removeFromFavourites()
 		{
-			$this->model->removeFromFavourites( $station );
-		}
-		
-		public function setForecaster( $forecaster )
-		{
-			$this->model->setForecaster( $forecaster );
+			$this->model->removeFromFavourites( $_SESSION['remove']);
+			$this->update();
 		}
 		
 		/**

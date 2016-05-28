@@ -2,12 +2,11 @@
 
 	abstract class Model
 	{
-
 		abstract protected function addToFavourites( $name );
 
 		abstract protected function removeFromFavourites( $name );
 
-		abstract protected function getStations();
+		abstract protected function getStations( $state );
 
 		abstract protected function getStation( $name );
 

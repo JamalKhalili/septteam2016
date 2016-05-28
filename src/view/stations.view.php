@@ -14,13 +14,12 @@
 		 * @var Station[]
 		 */
 		public $stations;
-		public $state;
 		/**
 		 * Constructor
 		 */
 		public function __construct()
 		{
-			$this->path = 'static/stations.php';
+			$this->path = 'templates/stations.php';
 		}
 	}
 ?>

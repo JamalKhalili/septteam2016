@@ -2,7 +2,7 @@
 
 	include 'observation.php';
 	/**
-	 * This is the json  client class that retrieves data from the BOM site
+	 * This is the json  client class that retrives data from the BOM site
 	 * @author Alec Goodsell
 	 * @version 1.0.1 
 	 */
@@ -57,11 +57,11 @@
 
 			foreach( $array['observations']['data'] as $data )
 			{
-				$currDate =  substr( $data['local_date_time_full'], 6 , 2) . '/' . 
-					substr( $data['local_date_time_full'], 4 , 2) . '/' . 
+				$currDate =  substr( $data['local_date_time_full'], 6 , 2) . '-' . 
+					substr( $data['local_date_time_full'], 4 , 2) . '-' . 
 					substr( $data['local_date_time_full'], 0, 4);
 					
-				$currTime = substr( $data['local_date_time'], -7 );
+				$currTime = substr( $data['local_date_time'], -7);
 			
 				$observations[] = new Observation( $currDate, $currTime, 
 								$data['air_temp'], $data['apparent_t'],
